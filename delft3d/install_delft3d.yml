@@ -1,0 +1,29 @@
+---
+
+# http://docs.adaptivecomputing.com/torque/6-1-0/adminGuide/help.htm
+- hosts: localhost
+  tasks:
+    - include_vars: vault.yml
+#    - name: configure hosts file
+#      lineinfile:
+#        dest: /etc/hosts
+#        line: '192.168.50.5 client1'
+#        create: yes
+#      become: yes
+#      become_user: root
+
+    - name: install packages for building torque
+      yum:
+        name: "{{ item }}"
+        state: installed
+      with_items:
+        - 'subversion'
+
+# Download source code
+# Checkout subversion repository to specified folder.
+    # create a directory if it doesn't exist
+    - subversion:
+        repo: https://svn.oss.deltares.nl/repos/delft3d/trunk/
+        username: "{{ svn_user }}"
+        password: "{{ svn_pass }}"
+        dest: /tmp/delft3d-source
