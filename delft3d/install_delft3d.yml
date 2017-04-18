@@ -1,7 +1,7 @@
 ---
 
 # http://docs.adaptivecomputing.com/torque/6-1-0/adminGuide/help.htm
-- hosts: localhost
+- hosts: vagrant
   tasks:
     - include_vars: vault.yml
 #    - name: configure hosts file
@@ -23,7 +23,8 @@
         - 'libtool'
         - 'libtool-ltdl'
         - 'libtool-ltdl-devel'
-        - '"Development Tools"'
+        - '@Development Tools'
+      become: yes
 
 
 # Download source code
