@@ -2,3 +2,4 @@ vars/secrets.yml
 vars/password.txt
 .vagrant/
 .idea/
+delft3d/*.retry
