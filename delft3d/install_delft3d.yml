@@ -24,6 +24,13 @@
         - 'libtool-ltdl'
         - 'libtool-ltdl-devel'
         - '@Development Tools'
+        - 'netcdf'
+        - 'netcdf-devel'
+        - 'netcdf-fortran-mpich'
+        - 'netcdf-fortran-mpich-devel'
+        - 'netcdf-mpich'
+        - 'netcdf-mpich-devel'
+        - 'expat-devel'
       become: yes
 
 
@@ -36,6 +43,14 @@
         username: "{{ svn_user }}"
         password: "{{ svn_pass }}"
         dest: /tmp/delft3d-repository
+
+ # Copy README from source code to local machine vagrant directory
+    - name: copy delft3d README to local machine
+      copy:
+        src: /tmp/delft3d-repository/src/README
+        dest: /vagrant/ignored/README
+        mode: 0755
+        remote_src: true
 
 
 # compile steps

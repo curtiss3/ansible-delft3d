@@ -3,3 +3,4 @@ vars/password.txt
 .vagrant/
 .idea/
 delft3d/*.retry
+ignored/
