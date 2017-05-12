@@ -55,4 +55,53 @@
 
 # compile steps
 # cd /tmp/delft3d-repository/src
-# run autogen.sh
+# autogen.sh
+# CFLAGS='-O2' CXXFLAGS='-O2' FFLAGS='-O2' FCFLAGS='-O2' ./configure --prefix=`pwd`
+# Above works
+
+
+
+
+
+# make ds-install
+# Failure output
+#Making install in io_netcdf
+#make[2]: Entering directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf'
+#Making install in packages
+#make[3]: Entering directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf/packages'
+#Making install in io_netcdf
+#make[4]: Entering directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf/packages/io_netcdf'
+#Making install in src
+#make[5]: Entering directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf/packages/io_netcdf/src'
+#../../../../../scripts_lgpl/linux/update_version.sh \
+#./io_netcdf_version.F90 . ./../include/version_number.ini /tmp/delft3d-repository/src
+#Generating version number in the ./io_netcdf_version.F90
+#Done, new version number is: 7203
+#/bin/sh ../../../../../libtool  --tag=FC   --mode=compile gfortran -DHAVE_CONFIG_H -I. -I../../../../..     -I../../../../../utils_lgpl/deltares_common/
+#packages/deltares_common/src -I/include -DWITH_DELFTONLINE   -O2 -ffree-line-length-none -cpp -c -o io_netcdf_version.lo io_netcdf_version.F90
+#libtool: compile:  gfortran -DHAVE_CONFIG_H -I. -I../../../../.. -I../../../../../utils_lgpl/deltares_common/packages/deltares_common/src -I/include -DW
+#ITH_DELFTONLINE -O2 -ffree-line-length-none -cpp -c io_netcdf_version.F90  -fPIC -o .libs/io_netcdf_version.o
+#Warning: Nonexistent include directory "/include"
+#libtool: compile:  gfortran -DHAVE_CONFIG_H -I. -I../../../../.. -I../../../../../utils_lgpl/deltares_common/packages/deltares_common/src -I/include -DW
+#ITH_DELFTONLINE -O2 -ffree-line-length-none -cpp -c io_netcdf_version.F90 -o io_netcdf_version.o >/dev/null 2>&1
+#/bin/sh ../../../../../libtool  --tag=FC   --mode=compile gfortran  -I../../../../../utils_lgpl/deltares_common/packages/deltares_common/src -I/include
+#-DWITH_DELFTONLINE   -O2 -ffree-line-length-none -cpp -c -o io_ugrid.lo  io_ugrid.f90
+#libtool: compile:  gfortran -I../../../../../utils_lgpl/deltares_common/packages/deltares_common/src -I/include -DWITH_DELFTONLINE -O2 -ffree-line-lengt
+#h-none -cpp -c io_ugrid.f90  -fPIC -o .libs/io_ugrid.o
+#Warning: Nonexistent include directory "/include"
+#io_ugrid.f90:34.4:
+#
+#use netcdf
+#    1
+#Fatal Error: Can't open module file 'netcdf.mod' for reading at (1): No such file or directory
+#make[5]: *** [io_ugrid.lo] Error 1
+#make[5]: Leaving directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf/packages/io_netcdf/src'
+#make[4]: *** [install-recursive] Error 1
+#make[4]: Leaving directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf/packages/io_netcdf'
+#make[3]: *** [install-recursive] Error 1
+#make[3]: Leaving directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf/packages'
+#make[2]: *** [install-recursive] Error 1
+#make[2]: Leaving directory `/tmp/delft3d-repository/src/utils_lgpl/io_netcdf'
+#make[1]: *** [install-recursive] Error 1
+#make[1]: Leaving directory `/tmp/delft3d-repository/src/utils_lgpl'
+#make: *** [install-recursive] Error 1
