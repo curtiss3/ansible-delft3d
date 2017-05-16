@@ -105,3 +105,8 @@
 #make[1]: *** [install-recursive] Error 1
 #make[1]: Leaving directory `/tmp/delft3d-repository/src/utils_lgpl'
 #make: *** [install-recursive] Error 1
+
+# Next steps
+# Compile netcdf
+# Running configure like this made it go farther
+# CFLAGS='-O2' CXXFLAGS='-O2' FFLAGS='-O2' FCFLAGS='-O2' ./configure --prefix=`pwd` --enable-shared --enable-fortran --enable-gxx --enable-static --enable-static-exec
